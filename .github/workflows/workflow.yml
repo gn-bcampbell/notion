@@ -1,46 +1,25 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "develop" branch
+on: 
   push:
-    branches: [ "develop" ]
-  pull_request:
-    branches: [ "develop" ]
+    branches:
+      - main
+      - release/*
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  firebase-deploy:
+
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Access GitHub repository secret
-      - name: Access GitHub secret
-        run: |
-          echo $CANDY_SECURE
-        env:
-          CANDY_SECURE: ${{ secrets.CANDY_APPLE_SECURE }}
-
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      # Create env file with access to secrets
-      - name: 'Create env file'
-        run: |
-          touch .env
-          echo API_ENDPOINT="https://google.com" >> .env
-          echo API_KEY=${{ secrets.CANDY_APPLE_SECURE }} >> .env
-          cat .env
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    - uses: actions/checkout@main
+    - uses: actions/setup-node@main
+      with:
+        node-version: '16.x'
+    - run: npm install
+    - run: npm run build:prod
+    - uses: w9jds/firebase-action@main
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
