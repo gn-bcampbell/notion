@@ -20,11 +20,10 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    display: 
-    
-    env:
-      api_key_prod: abc_123_prod
-      api_key_dev: abc_123_dev
+    display:     
+      env:
+        api_key_prod: abc_123_prod
+        api_key_dev: abc_123_dev
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
