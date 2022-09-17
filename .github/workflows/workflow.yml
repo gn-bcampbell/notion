@@ -25,7 +25,7 @@ jobs:
       # Access GitHub repository secret
       - name: Access GitHub secret
         run: |
-          echo $CANDY_SECURE
+          echo $CANDY_APPLE_SECURE
         env: ${{ secrets.CANDY_APPLE_SECURE }}
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
