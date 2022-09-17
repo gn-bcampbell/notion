@@ -26,6 +26,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Access GitHub repository secret
+      - name: Access GitHub secret
+        run: |
+          echo $CANDY_SECURE
+        
+        env: ${{ secrets.CANDY_APPLE_SECURE }}
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
