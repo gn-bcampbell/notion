@@ -7,6 +7,8 @@ let mode = '';
 
 console.log(`NODE_ENV=${config.NODE_ENV}`);
 
+console.log('hi ' + config.CANDY_SECURE);
+
 
 app.get('/', (req, res) => {
     res.send('Hello world');
