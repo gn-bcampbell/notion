@@ -1,8 +1,5 @@
 //front end js to fetch from api
-
-
 const blogsElement = document.querySelector('#blogs')
-
 
 const getBlogsFromBackend = async () => {
     const res = await fetch('http://localhost:5000/blogs')
@@ -10,9 +7,7 @@ const getBlogsFromBackend = async () => {
     return data;
 }
 
-
 // add to DOM
-
 const addBlogsToDom = async () => {
     const blogs = await getBlogsFromBackend()
 
@@ -22,7 +17,7 @@ const addBlogsToDom = async () => {
         <h3>${blog.title}</h3>
         <ul>
             <li><strong>Release Date: </strong> ${blog.date}</li>
-            <li><strong>Description: </strong> ${blog.description}</li>
+            <li><a href=${'google.com'}<strong>Description: </strong> ${blog.description}</li>
         </ul>
 
         <div>
@@ -31,7 +26,6 @@ const addBlogsToDom = async () => {
         `
         blogsElement.appendChild(div)
     });
-
 }
 
 addBlogsToDom();
