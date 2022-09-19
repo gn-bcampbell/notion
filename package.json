@@ -1,25 +1,18 @@
 {
   "name": "notion",
   "version": "1.0.0",
-  "description": "Connect to to Notion workspace using NotionSDK and NotionAPI endpoints to perform simple CRUD operations.",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "set NODE_ENV=development&& node server.js",
-    "prod": "set NODE_ENV=production&& node server.js",
-    "test": "set NODE_ENV=test&& node server.js"
+    "start": "node index"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gn-bcampbell/notion.git"
-  },
-  "author": "Brendan Campbell",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gn-bcampbell/notion/issues"
-  },
-  "homepage": "https://github.com/gn-bcampbell/notion#readme",
   "dependencies": {
+    "@notionhq/client": "^2.2.0",
     "dotenv": "^16.0.2",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20"
   }
 }
