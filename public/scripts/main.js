@@ -17,7 +17,7 @@ const addBlogsToDom = async () => {
         <h3>${blog.title}</h3>
         <ul>
             <li><strong>Release Date: </strong> ${blog.date}</li>
-            <li><a href=${'google.com'}<strong>Description: </strong> ${blog.description}</li>
+            <li><strong>Description: </strong> ${blog.description}</li>
         </ul>
 
         <div>
