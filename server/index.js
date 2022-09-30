@@ -2,8 +2,7 @@ const express = require('express');
 const app = express(); // create express application
 
 const users = require('./routes/users'); // register global middleware variable
-
-app.use('./api/users', users); // returns the users response object when url is accessed
+app.use('/api/users', users); // returns the users response object when url is accessed
 
 //route
 app.get('/api', (req, res) => {
